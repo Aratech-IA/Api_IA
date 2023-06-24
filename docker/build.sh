@@ -1,0 +1,1 @@
+docker build -f docker/Dockerfile --rm -t aratechia/objects_recognition:$1 .
