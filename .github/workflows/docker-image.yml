@@ -4,7 +4,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -20,6 +20,9 @@ jobs:
       uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
       with:
         images: aratechia/objects_reco
+
+    - name: Check working space directory
+      run: du ${GITHUB_WORKSPACE} -h -d 1
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
