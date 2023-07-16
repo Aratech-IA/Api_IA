@@ -25,7 +25,7 @@ RUN sed -i  '/config.should_reload:/a  \ \ \ \ \ \ \ \ server.force_exit = True'
 WORKDIR /App
 RUN date +%s >/App/build-date.txt
 COPY docker/start.sh /App
-RUN curl -H 'Accept: application/vnd.github.v3.raw' -o latest_commit -L https://api.github.com/repos/aratech-IA/Objects_recognition/commits
+ADD https://api.github.com/repos/aratech-IA/Objects_recognition/commits/main latest_commit
 RUN git clone https://github.com/Aratech-IA/Objects_recognition.git
 
 CMD ["/App/start.sh"]
