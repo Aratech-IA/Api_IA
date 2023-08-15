@@ -16,7 +16,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 # set python
 RUN pip3 install psutil Pillow numpy python-crontab opencv-python jupyterlab django websockets uvicorn gunicorn \
-    django-cors-headers ultralytics djangorestframework markdown django-filter
+    django-cors-headers ultralytics djangorestframework markdown django-filter psycopg2
 
 # set uvicorn
 RUN sed -i  '/config.should_reload:/a  \ \ \ \ \ \ \ \ server.force_exit = True' /usr/local/lib/python3.8/dist-packages/uvicorn/main.py
